@@ -66,3 +66,27 @@ This section has moved here: https://facebook.github.io/create-react-app/docs/de
 ### `npm run build` fails to minify
 
 This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+
+
+
+1. immutable 库
+ immutable对象 用来解决什么问题的，如果没有这个库，自己怎么解决这个问题
+ 防止在业务里直接修改 store state, im mutable 不可改变 不可更改
+
+
+在使用的时候就需要使用 get, 更新数据的时候使用set更新，它不会直接更改state, immutable对象的set方法，会结合之前immutable对象的值和设置的值，返回一个全新的对象
+
+2. redux-immutable 模块
+为什么要有这个模块，解决什么问题，有点和缺点 
+
+```
+const mapStateToProps = (state) => ({
+    focused: state.header.get('focused')
+});
+```
+
+> state是一个js对象，state.header是一个immutable对象，我们系统统一成immutable对象。我们希望state也成为一个immutable 
+
+3. combineReducers 在redux和redux-immutable都有
+有什么区别，为什么从新封装了，却不更改名字？
+
