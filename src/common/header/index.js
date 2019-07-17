@@ -2,7 +2,8 @@ import React from 'react';
 import { connect } from 'react-redux'
 import { CSSTransition } from 'react-transition-group';
 import { HeaderWrapper, Logo, Nav, NavItem, NavSearchWrapper, NavSearch, Addition, Button } from './style.js'
-import * as actionCreators  from './store/actionCreators'
+import { actionCreators }  from './store'
+
 
 const Header = (props) => {
     return (
@@ -36,28 +37,24 @@ const Header = (props) => {
                 <Button className='writting'><span className="iconfont">&#xe615;</span>写文章</Button>
             </Addition>
         </HeaderWrapper>
-        
     )
 }
 
-const mapStateToProps = (state) => {
-    return {
-        focused: state.header.focused
-    }
-};
+const mapStateToProps = (state) => ({
+    focused: state.header.focused
+});
 
-const mapDispachToProps = (dispatch) => {
-    return {
-        handleInputFocus() {
-            const action = actionCreators.searchFocus()
-            dispatch(action)
-        },
-        handleInputBlur() {
-            const action = actionCreators.searchBlur()
-            dispatch(action)
-        }
+const mapDispachToProps = (dispatch) => ({
+    handleInputFocus() {
+        const action = actionCreators.searchFocus()
+        dispatch(action)
+    },
+    handleInputBlur() {
+        const action = actionCreators.searchBlur()
+        dispatch(action)
     }
-}
+})
+
 
 export default connect(
     mapStateToProps, 
