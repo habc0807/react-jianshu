@@ -129,8 +129,8 @@ export const SearchInfoSwitch = styled.span`
 
 export const SearchInfoList = styled.div`
     display: flex;
+    flex-wrap: wrap;
     padding-top: 10px;
-    overflow: hidden;
 `
 
 export const SearchInfoItem = styled.a`

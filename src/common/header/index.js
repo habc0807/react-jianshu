@@ -20,19 +20,21 @@ import { actionCreators }  from './store'
 
 class Header extends Component {
 
-    getListArea (show) {
-        if (show) {
+    getListArea () {
+        const { focused, list } = this.props
+
+        if (focused) {
             return (
                 <SearchInfo>
                     <SearchInfoTitle>
                         热门搜索
                         <SearchInfoSwitch>换一换</SearchInfoSwitch>
                         <SearchInfoList>
-                            <SearchInfoItem>教育</SearchInfoItem>
-                            <SearchInfoItem>教育</SearchInfoItem>
-                            <SearchInfoItem>教育</SearchInfoItem>
-                            <SearchInfoItem>教育</SearchInfoItem>
-                            <SearchInfoItem>教育</SearchInfoItem>
+                            {
+                                list.map((item, index) => {
+                                    return <SearchInfoItem key={index}>{item}</SearchInfoItem>
+                                })
+                            }
                         </SearchInfoList>
                     </SearchInfoTitle>
                 </SearchInfo>
@@ -43,6 +45,8 @@ class Header extends Component {
     }
 
     render() {
+        const { focused, list, handleInputFocus, handleInputBlur } = this.props
+
         return (
             <HeaderWrapper>
                 <Logo />
@@ -52,18 +56,18 @@ class Header extends Component {
                     <NavItem className='search'>
                         <NavSearchWrapper>
                             <CSSTransition
-                                in={this.props.focused}
+                                in={focused}
                                 timeout={200}
                                 classNames='slide'
                             >
                                 <NavSearch 
-                                    className={this.props.focused ? 'focused' : ''}
-                                    onFocus={this.props.handleInputFocus}
-                                    onBlur={this.props.handleInputBlur}
+                                    className={focused ? 'focused' : ''}
+                                    onFocus={handleInputFocus}
+                                    onBlur={handleInputBlur}
                                 />
                             </CSSTransition>
-                            <span className={this.props.focused ? 'focused iconfont' : 'iconfont'}>&#xe637;</span>
-                            {this.getListArea(this.props.focused ? true : false)}
+                            <span className={focused ? 'focused iconfont' : 'iconfont'}>&#xe637;</span>
+                            {this.getListArea()}
                         </NavSearchWrapper>
                     </NavItem>
                     <NavItem className='right'>登陆</NavItem>
@@ -80,18 +84,18 @@ class Header extends Component {
 
 
 const mapStateToProps = (state) => ({
-    focused: state.getIn(['header', 'focused'])
+    focused: state.getIn(['header', 'focused']),
+    list: state.getIn(['header', 'list'])
 });
 
 
 const mapDispachToProps = (dispatch) => ({
     handleInputFocus() {
-        const action = actionCreators.searchFocus()
-        dispatch(action)
+        dispatch(actionCreators.getSearchList())
+        dispatch(actionCreators.searchFocus())
     },
     handleInputBlur() {
-        const action = actionCreators.searchBlur()
-        dispatch(action)
+        dispatch(actionCreators.searchBlur())
     }
 })
 
