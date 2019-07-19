@@ -10,6 +10,7 @@ export const Logo = styled.a.attrs({
     href: '/'
 })`
     width: 100px;
+    min-width: 100px;
     height: 56px;
     background: url(${logoPic}) no-repeat;
     background-size: contain;

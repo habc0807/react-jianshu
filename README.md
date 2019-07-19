@@ -90,5 +90,11 @@ const mapStateToProps = (state) => ({
 3. combineReducers 在redux和redux-immutable都有
 有什么区别，为什么从新封装了，却不更改名字？
 
-4. 
+4. react-router 和 react-router-dom的区别是什么 
+react-router做了什么事，实现原理 
+react-router-dom 为什么有这个模块，用来解决什么问题的，其实现原理是什么？
+
+Route 与 Router的区别
+
+
 
