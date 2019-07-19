@@ -71,7 +71,7 @@ This section has moved here: https://facebook.github.io/create-react-app/docs/tr
 
 1. immutable 库
  immutable对象 用来解决什么问题的，如果没有这个库，自己怎么解决这个问题
- 防止在业务里直接修改 store state, im mutable 不可改变 不可更改
+ 防止在业务里直接修改 数据类型, im mutable 不可改变 不可更改，但是可以改变其深层的数据类型？为什么？这样要它何用。
 
 
 在使用的时候就需要使用 get, 更新数据的时候使用set更新，它不会直接更改state, immutable对象的set方法，会结合之前immutable对象的值和设置的值，返回一个全新的对象
@@ -89,4 +89,6 @@ const mapStateToProps = (state) => ({
 
 3. combineReducers 在redux和redux-immutable都有
 有什么区别，为什么从新封装了，却不更改名字？
+
+4. 
 

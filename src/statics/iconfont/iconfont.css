@@ -1,7 +1,3 @@
-import { createGlobalStyle } from 'styled-components'
-
-export const GlobalIconFontStyled = createGlobalStyle`
-
 @font-face {font-family: "iconfont";
   src: url('./iconfont.eot?t=1563517883536'); /* IE9 */
   src: url('./iconfont.eot?t=1563517883536#iefix') format('embedded-opentype'), /* IE6-IE8 */
@@ -34,4 +30,4 @@ export const GlobalIconFontStyled = createGlobalStyle`
 .iconspin:before {
   content: "\e606";
 }
-`
+

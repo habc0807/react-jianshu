@@ -45,20 +45,22 @@ export const NavItem = styled.div`
 export const NavSearchWrapper = styled.div`
     margin-left: 10px;
     position: relative;
-    .iconfont {
-        position: absolute;
-        right: 5px;
-        top: 50%;
-        transform: translateY(-50%);
-        width: 30px;
-        height: 30px;
-        text-align: center;
-        line-height: 30px;
-        background: #eee;
-        border-radius: 50%;
-        &.focused {
-            background: #777;
-            color: #fff;
+    &.navsearchWrapper {
+        .searchiconfont {
+            position: absolute;
+            right: 5px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 30px;
+            height: 30px;
+            text-align: center;
+            line-height: 30px;
+            background: #eee;
+            border-radius: 50%;
+            &.focused {
+                background: #777;
+                color: #fff;
+            }
         }
     }
 `
@@ -123,8 +125,16 @@ export const SearchInfoTitle = styled.div`
 `
 
 export const SearchInfoSwitch = styled.span`
+    display: flex;
+    flex-wrap: nowrap;
     float: right;
     font-size: 13px;
+    .spin {
+        margin-right: 5px;
+        font-size: 12px;
+        transition: all .2s ease-in;
+        transform-origin: center center;
+    }
 `
 
 export const SearchInfoList = styled.div`
